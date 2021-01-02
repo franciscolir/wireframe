@@ -4,6 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
+
+    <style type="text/css" media="screen">
+     
+
+        #imagen {
+            width: 300px;
+            height: 250px;
+            background-size: cover;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // Variables
+            const IMAGENES = ['img/fondo_1.png', 'img/fondo_2.png', 'img/fondo_3.png'
+            ];
+           
+            let posicionActual = IMAGENES.length - 1;
+            let $botonRetroceder = document.querySelector('#retroceder');
+            let $botonAvanzar = document.querySelector('#avanzar');
+            let $botonResetear = document.querySelector('#resetear');
+            let $imagen = document.querySelector('#imagen');
+
+
+
+            // Funciones
+
+            /**
+             * Funcion que cambia la foto en la siguiente posicion
+             */
+            function pasarFoto() {
+                if (posicionActual >= IMAGENES.length - 1) {
+                    posicionActual = 0;
+                } else {
+                    posicionActual++;
+                }
+                renderizarImagen();
+            }
+
+            /**
+             * Funcion que cambia la foto en la anterior posicion
+             */
+            function retrocederFoto() {
+                if (posicionActual <= 0) {
+                    posicionActual = IMAGENES.length - 1;
+                } else {
+                    posicionActual--;
+                }
+                renderizarImagen();
+            }
+
+            /**
+             * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
+             */
+            function renderizarImagen() {
+                $imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
+            }
+            /** 
+            * Funcion resetea imagen
+            * */
+            function resetearImagen() {
+                $imagen.style.backgroundImage = "none";
+            }
+
+        
+
+     
+            // Eventos
+            $botonAvanzar.addEventListener('click', pasarFoto);
+            $botonRetroceder.addEventListener('click', retrocederFoto);
+            $botonResetear.addEventListener('click', resetearImagen);
+
+            // Iniciar
+           // renderizarImagen();
+        } 
+    </script>
 </head>
 
 <body>
@@ -17,7 +92,14 @@
             <div>ASIDE LEFT</div>
         </aside>
         <main>
-            <div>MAIN</div>
+            <div id="imagen">
+                <div>
+                    <button id="avanzar">1</button>
+                    <button id="resetear">2</button>
+                    <button id="retroceder">3</button>
+                    
+                </div>
+        </div>
         </main>
         <aside>
             <div>ASIDE RIGHT</div>
