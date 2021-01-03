@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
+    <link href="style.css"
+    rel="stylesheet">
 
     <style type="text/css" media="screen">
      
@@ -17,10 +19,11 @@
     <script>
         window.onload = function () {
             // Variables
-            const IMAGENES = ['img/fondo_1.png', 'img/fondo_2.png', 'img/fondo_3.png'
+            const IMAGENES = ['fondo_1.png', 'fondo_2.png', 'fondo_3.png'
             ];
            
             let posicionActual = IMAGENES.length - 1;
+           
             let $botonRetroceder = document.querySelector('#retroceder');
             let $botonAvanzar = document.querySelector('#avanzar');
             let $botonResetear = document.querySelector('#resetear');
@@ -86,6 +89,9 @@
         <header>
             <div>
                 <div>HEADER</div>
+                <div>
+                    
+                </div>
             </div>
         </header>
         <aside>
@@ -99,6 +105,19 @@
                     <button id="retroceder">3</button>
                     
                 </div>
+                <div class= "ec2">
+                    <canvas id="myCanvas_c2" width="200" height="100">
+                </canvas>
+                </div>
+                <div class= "ec3">
+                    <canvas id="myCanvas_c3" width="200" height="100">
+                </canvas>
+                </div>
+                <div class= "ec4">
+                    <canvas id="myCanvas_c4" width="200" height="100">
+                </canvas>
+                </div>
+                
         </div>
         </main>
         <aside>
@@ -110,6 +129,36 @@
             </div>
         </footer>
     </div>
+    <script>
+        var c = document.getElementById("myCanvas_c2");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.fillStyle = "red";
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
+        ctx.stroke();
+        ctx.fill();
+               </script>
+               <script>
+                var c = document.getElementById("myCanvas_c3");
+                var ctx = c.getContext("2d");
+                ctx.beginPath();
+                ctx.strokeStyle = "green";
+                ctx.fillStyle = "green";
+                ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
+                ctx.stroke();
+                ctx.fill();
+                       </script>
+                 <script>
+                        var c = document.getElementById("myCanvas_c4");
+                        var ctx = c.getContext("2d");
+                        ctx.beginPath();
+                        ctx.strokeStyle = "blue";
+                        ctx.fillStyle = "blue";
+                        ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
+                        ctx.stroke();
+                        ctx.fill();
+                               </script>
 </body>
 
 </html>
