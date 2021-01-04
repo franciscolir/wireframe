@@ -4,38 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
-    <link href="style.css"
-    rel="stylesheet">
+    <link rel="stylesheet" href="style.css" >
 
-    <style type="text/css" media="screen">
-     
-
-        #imagen {
-            width: 300px;
-            height: 250px;
-            background-size: cover;
-        }
-    </style>
+   
     <script>
         window.onload = function () {
             // Variables
-            const IMAGENES = ['fondo_1.png', 'fondo_2.png', 'fondo_3.png'
-            ];
-           
+            const IMAGENES = ['fondo_1.png', 'fondo_2.png', 'fondo_3.png'];
+
             let posicionActual = IMAGENES.length - 1;
-           
             let $botonRetroceder = document.querySelector('#retroceder');
             let $botonAvanzar = document.querySelector('#avanzar');
             let $botonResetear = document.querySelector('#resetear');
             let $imagen = document.querySelector('#imagen');
 
-
-
-            // Funciones
-
-            /**
-             * Funcion que cambia la foto en la siguiente posicion
-             */
+          
+           // Funcion que cambia la foto en la siguiente posicion
             function pasarFoto() {
                 if (posicionActual >= IMAGENES.length - 1) {
                     posicionActual = 0;
@@ -43,11 +27,9 @@
                     posicionActual++;
                 }
                 renderizarImagen();
-            }
+          }
 
-            /**
-             * Funcion que cambia la foto en la anterior posicion
-             */
+             // Funcion que cambia la foto en la anterior posicion
             function retrocederFoto() {
                 if (posicionActual <= 0) {
                     posicionActual = IMAGENES.length - 1;
@@ -57,108 +39,57 @@
                 renderizarImagen();
             }
 
-            /**
-             * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
-             */
+             //Funcion que actualiza la imagen de imagen dependiendo de posicionActual
             function renderizarImagen() {
                 $imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
             }
-            /** 
-            * Funcion resetea imagen
-            * */
+             
+            //Funcion resetea imagen
             function resetearImagen() {
                 $imagen.style.backgroundImage = "none";
             }
 
-        
-
-     
             // Eventos
             $botonAvanzar.addEventListener('click', pasarFoto);
             $botonRetroceder.addEventListener('click', retrocederFoto);
             $botonResetear.addEventListener('click', resetearImagen);
 
             // Iniciar
-           // renderizarImagen();
+            // resetearImagen();
         } 
     </script>
 </head>
+<!-- /////////////////////////inico body//////////////////////////// -->
 
 <body>
-    <div>
-        <header>
-            <div>
-                <div>HEADER</div>
-                <div>
-                    
-                </div>
-            </div>
-        </header>
-        <aside>
-            <div>ASIDE LEFT</div>
-        </aside>
-        <main>
-            <div id="imagen">
-                <div>
-                    <button id="avanzar">1</button>
-                    <button id="resetear">2</button>
-                    <button id="retroceder">3</button>
-                    
-                </div>
-                <div class= "ec2">
-                    <canvas id="myCanvas_c2" width="200" height="100">
-                </canvas>
-                </div>
-                <div class= "ec3">
-                    <canvas id="myCanvas_c3" width="200" height="100">
-                </canvas>
-                </div>
-                <div class= "ec4">
-                    <canvas id="myCanvas_c4" width="200" height="100">
-                </canvas>
-                </div>
-                
-        </div>
-        </main>
-        <aside>
-            <div>ASIDE RIGHT</div>
-        </aside>
-        <footer>
-            <div>
-                <div>FOOTER</div>
-            </div>
-        </footer>
+
+<!-- --------------------------fila------------------------------------ --> 
+    <div class="grid" id="imagen">
+        <div class="bg-red">a1</div>
+        <div class="bg-red">a2</div>
+        <div class="bg-green">a3</div>
+        <div class="bg-blue">a4</div>
+        <div class="bg-blue">a5</div>
+<!-- --------------------------fila------------------------------------ -->
+        <div class="bg-red">b1</div>
+        <div class="b2"><button class="bot1" id="avanzar">b2-boton 1</button></div>
+        <div class="b3"><button class="bot2" id="resetear">b3-boton 2</button></div>
+        <div class="b4"><button class="bot3" id="retroceder">b4-boton 3</button></div>
+        <div class="bg-red">b5</div>
+<!-- --------------------------fila------------------------------------ -->
+        <div class="bg-green">c1</div>
+        <div class="c2"><div class="c-red">c2</div></div>
+        <div class="c3"><div class="c-green">c3</div></div>
+        <div class="c4"><div class="c-blue">c4</div></div>
+        <div class="bg-blue">c5</div>
+<!-- --------------------------fila------------------------------------ -->
+        <div class="bg-blue">d1</div>
+        <div class="bg-blue">d2</div>
+        <div class="bg-green">d3</div>
+        <div class="bg-red">d4</div>
+        <div class="bg-red">d5</div>
     </div>
-    <script>
-        var c = document.getElementById("myCanvas_c2");
-        var ctx = c.getContext("2d");
-        ctx.beginPath();
-        ctx.strokeStyle = "red";
-        ctx.fillStyle = "red";
-        ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
-        ctx.stroke();
-        ctx.fill();
-               </script>
-               <script>
-                var c = document.getElementById("myCanvas_c3");
-                var ctx = c.getContext("2d");
-                ctx.beginPath();
-                ctx.strokeStyle = "green";
-                ctx.fillStyle = "green";
-                ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
-                ctx.stroke();
-                ctx.fill();
-                       </script>
-                 <script>
-                        var c = document.getElementById("myCanvas_c4");
-                        var ctx = c.getContext("2d");
-                        ctx.beginPath();
-                        ctx.strokeStyle = "blue";
-                        ctx.fillStyle = "blue";
-                        ctx.arc(95, 50, 40, 0, 2 * Math.PI);      
-                        ctx.stroke();
-                        ctx.fill();
-                               </script>
+        
 </body>
 
 </html>
