@@ -10,7 +10,7 @@
    
     <script>
         window.onload = function () {
-            // Variables
+            // Variables Slide
             const IMAGENES = ['fondo_1.png', 'fondo_2.png', 'fondo_3.png'];
 
             let posicionActual = IMAGENES.length - 1;
@@ -18,8 +18,22 @@
             let $botonAvanzar = document.querySelector('#avanzar');
             let $botonResetear = document.querySelector('#resetear');
             let $imagen = document.querySelector('#imagen');
+            
+            // variables cambio color
+            let $cuadrorojo = document.querySelectorAll('.bg-red')
+            let $cuadroazul = document.querySelectorAll('.bg-blue')
+            let $cuadroverde = document.querySelectorAll('.bg-green')
 
-          
+            let $cuadrotodos = document.querySelectorAll('.square')
+
+            let $circulorojo = document.querySelector('.c-red')
+            let $circuloverde = document.querySelector('.c-green')
+            let $circuloazul = document.querySelector('.c-blue')
+
+            let $boton1 = document.querySelector('#avanzar')
+            let $boton2 = document.querySelector('#resetear')
+            let $boton3 = document.querySelector('#retroceder')
+                     
            // Funcion que cambia la foto en la siguiente posicion
             function pasarFoto() {
                 if (posicionActual >= IMAGENES.length - 1) {
@@ -50,12 +64,80 @@
                 $imagen.style.backgroundImage = "none";
             }
 
-            // Eventos
+            // Eventos Slide
             $botonAvanzar.addEventListener('click', pasarFoto);
             $botonRetroceder.addEventListener('click', retrocederFoto);
             $botonResetear.addEventListener('click', resetearImagen);
+            //_______________________________________________//
+
+            // Eventos cambio color cuadros
+           
+           $cuadrorojo.forEach(function(e){
+            e.addEventListener('click',function(){
+                 $cuadroazul.forEach(function(e){
+                     e.style.backgroundColor='#ff6766'
+                })
+                })   
+           })
+/*
+           $cuadroverde.forEach(function(e){
+            e.addEventListener('click',function(item){
+                //$cuadroverde.style.backgroundColor='green'           
+            item.target.style.backgroundColor='blue'
+            })   
+           })
+*/
+            $cuadroverde.forEach(function(e){
+            e.addEventListener('click',function(){
+                 $cuadroverde.forEach(function(e){
+                     e.style.backgroundColor='#3366ff'
+                })
+                })   
+           })
+
+           $cuadroazul.forEach(function(e){
+            e.addEventListener('click',function(){
+                 $cuadroazul.forEach(function(e){
+                     e.style.backgroundColor='white'
+                })
+                })   
+           })
+            //_______________________________________________//
+
+
+            // Eventos cambio color cuadros
+
+            $circulorojo.addEventListener('mouseover', function () {
+                $boton1.style.backgroundColor = '#ff6766'
+                $boton2.style.backgroundColor = '#ff6766'
+                $boton3.style.backgroundColor = '#ff6766'
+                $cuadrotodos.forEach(function (e) {
+                    e.style.backgroundColor = '#ff6766'
+                })
+            })
+
+
+            $circuloverde.addEventListener('mouseover', function () {
+                $boton1.style.backgroundColor = ' #33cc00'
+                $boton2.style.backgroundColor = ' #33cc00'
+                $boton3.style.backgroundColor = ' #33cc00'
+                $cuadrotodos.forEach(function (e) {
+                    e.style.backgroundColor = ' #33cc00'
+                })
+            })
+
+
+            $circuloazul.addEventListener('mouseover', function () {
+                $boton1.style.backgroundColor = '#3366ff'
+                $boton2.style.backgroundColor = '#3366ff'
+                $boton3.style.backgroundColor = '#3366ff'
+                $cuadrotodos.forEach(function (e) {
+                    e.style.backgroundColor = '#3366ff'
+                })
+            })   
 
             // Iniciar
+
             // resetearImagen();
         } 
     </script>
@@ -66,29 +148,29 @@
 
 <!-- --------------------------fila------------------------------------ --> 
     <div class="grid" id="imagen">
-        <div class="bg-red">a1</div>
-        <div class="bg-red">a2</div>
-        <div class="bg-green">a3</div>
-        <div class="bg-blue">a4</div>
-        <div class="bg-blue">a5</div>
+        <div class="bg-red square">a1</div>
+        <div class="bg-red square">a2</div>
+        <div class="bg-green square">a3</div>
+        <div class="bg-blue square">a4</div>
+        <div class="bg-blue square">a5</div>
 <!-- --------------------------fila------------------------------------ -->
-        <div class="bg-red">b1</div>
+        <div class="bg-red square">b1</div>
         <div class="b2"><button class="bot1" id="avanzar">boton 1</button></div>
         <div class="b3"><button class="bot2" id="resetear">boton 2</button></div>
         <div class="b4"><button class="bot3" id="retroceder">boton 3</button></div>
-        <div class="bg-red">b5</div>
+        <div class="bg-red square">b5</div>
 <!-- --------------------------fila------------------------------------ -->
-        <div class="bg-green">c1</div>
+        <div class="bg-green square">c1</div>
         <div class="c2"><div class="c-red">c2</div></div>
         <div class="c3"><div class="c-green">c3</div></div>
         <div class="c4"><div class="c-blue">c4</div></div>
-        <div class="bg-blue">c5</div>
+        <div class="bg-blue square">c5</div>
 <!-- --------------------------fila------------------------------------ -->
-        <div class="bg-blue">d1</div>
-        <div class="bg-blue">d2</div>
-        <div class="bg-green">d3</div>
-        <div class="bg-red">d4</div>
-        <div class="bg-red">d5</div>
+        <div class="bg-blue square">d1</div>
+        <div class="bg-blue square">d2</div>
+        <div class="bg-green square">d3</div>
+        <div class="bg-red square">d4</div>
+        <div class="bg-red square">d5</div>
     </div>
         
 </body>
