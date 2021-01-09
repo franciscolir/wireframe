@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="style.css">
 
-   
+
     <script>
         window.onload = function () {
-            // Variables Slide
+
+            // Variables ///////////////////////////////////
+
+            // Slide imagenes//
             const IMAGENES = ['fondo_1.png', 'fondo_2.png', 'fondo_3.png'];
 
             let posicionActual = IMAGENES.length - 1;
@@ -18,8 +21,9 @@
             let $botonAvanzar = document.querySelector('#avanzar');
             let $botonResetear = document.querySelector('#resetear');
             let $imagen = document.querySelector('#imagen');
-            
-            // variables cambio color
+
+
+            // Cambio background //
             let $cuadrorojo = document.querySelectorAll('.bg-red')
             let $cuadroazul = document.querySelectorAll('.bg-blue')
             let $cuadroverde = document.querySelectorAll('.bg-green')
@@ -33,8 +37,12 @@
             let $boton1 = document.querySelector('#avanzar')
             let $boton2 = document.querySelector('#resetear')
             let $boton3 = document.querySelector('#retroceder')
-                     
-           // Funcion que cambia la foto en la siguiente posicion
+            //_______________________________________________________//
+
+
+            // Funciones ////////////////////////////////////////////
+
+            // Avanzar imagen //
             function pasarFoto() {
                 if (posicionActual >= IMAGENES.length - 1) {
                     posicionActual = 0;
@@ -42,9 +50,9 @@
                     posicionActual++;
                 }
                 renderizarImagen();
-          }
+            }
 
-             // Funcion que cambia la foto en la anterior posicion
+            // Retroceder imagen //
             function retrocederFoto() {
                 if (posicionActual <= 0) {
                     posicionActual = IMAGENES.length - 1;
@@ -54,58 +62,63 @@
                 renderizarImagen();
             }
 
-             //Funcion que actualiza la imagen de imagen dependiendo de posicionActual
+            // Actualiza imagen //
             function renderizarImagen() {
                 $imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
             }
-             
-            //Funcion resetea imagen
+
+            // Resetear imagen //
             function resetearImagen() {
                 $imagen.style.backgroundImage = "none";
             }
+            //___________________________________________________________//
 
-            // Eventos Slide
+
+
+            // Eventos ////////////////////////////////////////////
+
+            // Slide imagenes //
             $botonAvanzar.addEventListener('click', pasarFoto);
             $botonRetroceder.addEventListener('click', retrocederFoto);
             $botonResetear.addEventListener('click', resetearImagen);
-            //_______________________________________________//
 
-            // Eventos cambio color cuadros
-           
-           $cuadrorojo.forEach(function(e){
-            e.addEventListener('click',function(){
-                 $cuadroazul.forEach(function(e){
-                     e.style.backgroundColor='#ff6766'
+            // Click cambio background cuadros rojos //
+
+            $cuadrorojo.forEach(function (e) {
+                e.addEventListener('click', function () {
+                    $cuadroazul.forEach(function (e) {
+                        e.style.backgroundColor = '#ff6766'
+                    })
                 })
-                })   
-           })
-/*
-           $cuadroverde.forEach(function(e){
-            e.addEventListener('click',function(item){
-                //$cuadroverde.style.backgroundColor='green'           
-            item.target.style.backgroundColor='blue'
-            })   
-           })
-*/
-            $cuadroverde.forEach(function(e){
-            e.addEventListener('click',function(){
-                 $cuadroverde.forEach(function(e){
-                     e.style.backgroundColor='#3366ff'
+            })
+            /*
+                       $cuadroverde.forEach(function(e){
+                        e.addEventListener('click',function(item){
+                            //$cuadroverde.style.backgroundColor='green'           
+                        item.target.style.backgroundColor='blue'
+                        })   
+                       })
+            */
+            // Click cambio background cuadros verde //
+            $cuadroverde.forEach(function (e) {
+                e.addEventListener('click', function () {
+                    $cuadroverde.forEach(function (e) {
+                        e.style.backgroundColor = '#3366ff'
+                    })
                 })
-                })   
-           })
-
-           $cuadroazul.forEach(function(e){
-            e.addEventListener('click',function(){
-                 $cuadroazul.forEach(function(e){
-                     e.style.backgroundColor='white'
+            })
+            // Click cambio background cuadros azul //
+            $cuadroazul.forEach(function (e) {
+                e.addEventListener('click', function () {
+                    $cuadroazul.forEach(function (e) {
+                        e.style.backgroundColor = 'white'
+                    })
                 })
-                })   
-           })
-            //_______________________________________________//
+            })
 
 
-            // Eventos cambio color cuadros
+
+            // Mouseover cambio color rojo cuadros //
 
             $circulorojo.addEventListener('mouseover', function () {
                 $boton1.style.backgroundColor = '#ff6766'
@@ -116,6 +129,7 @@
                 })
             })
 
+            // Mouseover cambio color verde cuadros //
 
             $circuloverde.addEventListener('mouseover', function () {
                 $boton1.style.backgroundColor = ' #33cc00'
@@ -126,7 +140,7 @@
                 })
             })
 
-
+            // Mouseover cambio color azul cuadros //
             $circuloazul.addEventListener('mouseover', function () {
                 $boton1.style.backgroundColor = '#3366ff'
                 $boton2.style.backgroundColor = '#3366ff'
@@ -134,45 +148,56 @@
                 $cuadrotodos.forEach(function (e) {
                     e.style.backgroundColor = '#3366ff'
                 })
-            })   
+            })
+            //___________________________________________________________//
 
-            // Iniciar
 
-            // resetearImagen();
+
+        
         } 
     </script>
+
 </head>
+
+
+
 <!-- /////////////////////////inico body//////////////////////////// -->
 
 <body>
 
-<!-- --------------------------fila------------------------------------ --> 
+    <!-- --------------------------fila-------------------------------------->
     <div class="grid" id="imagen">
-        <div class="bg-red square">a1</div>
-        <div class="bg-red square">a2</div>
-        <div class="bg-green square">a3</div>
-        <div class="bg-blue square">a4</div>
-        <div class="bg-blue square">a5</div>
-<!-- --------------------------fila------------------------------------ -->
-        <div class="bg-red square">b1</div>
+        <div class="bg-red square"></div>
+        <div class="bg-red square"></div>
+        <div class="bg-green square"></div>
+        <div class="bg-blue square"></div>
+        <div class="bg-blue square"></div>
+        <!-- --------------------------fila----------------------------------->
+        <div class="bg-red square"></div>
         <div class="b2"><button class="bot1" id="avanzar">boton 1</button></div>
         <div class="b3"><button class="bot2" id="resetear">boton 2</button></div>
         <div class="b4"><button class="bot3" id="retroceder">boton 3</button></div>
-        <div class="bg-red square">b5</div>
-<!-- --------------------------fila------------------------------------ -->
-        <div class="bg-green square">c1</div>
-        <div class="c2"><div class="c-red">c2</div></div>
-        <div class="c3"><div class="c-green">c3</div></div>
-        <div class="c4"><div class="c-blue">c4</div></div>
-        <div class="bg-blue square">c5</div>
-<!-- --------------------------fila------------------------------------ -->
-        <div class="bg-blue square">d1</div>
-        <div class="bg-blue square">d2</div>
-        <div class="bg-green square">d3</div>
-        <div class="bg-red square">d4</div>
-        <div class="bg-red square">d5</div>
+        <div class="bg-red square"></div>
+        <!-- --------------------------fila----------------------------------->
+        <div class="bg-green square"></div>
+        <div class="c2">
+            <div class="c-red"></div>
+        </div>
+        <div class="c3">
+            <div class="c-green"></div>
+        </div>
+        <div class="c4">
+            <div class="c-blue"></div>
+        </div>
+        <div class="bg-blue square"></div>
+        <!-- --------------------------fila----------------------------------->
+        <div class="bg-blue square"></div>
+        <div class="bg-blue square"></div>
+        <div class="bg-green square"></div>
+        <div class="bg-red square"></div>
+        <div class="bg-red square"></div>
     </div>
-        
+
 </body>
 
 </html>
